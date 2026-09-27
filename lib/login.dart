@@ -15,14 +15,22 @@ class _LoginState extends State<Login>{
         title: Text("Login Screen"),
       ),
       floatingActionButton: FloatingActionButton(
-        child: Text("Click Me"),
+        child: Text(
+          "Click Me",
+          ),
         onPressed: (){
-          number++;
-          print("Floating action button is clicked by $number");
+         setState(() {
+           number++;
+           print("Button is clicked by $number times");
+         });
         },
       ),
       body: Center(
-        child: Text("This text is under Center inside Scaffold body"),
+        child: Text(
+          "$number", //Current State = 0
+          style: TextStyle(fontSize: 30),
+          
+          ),
       ),
     );
     }
