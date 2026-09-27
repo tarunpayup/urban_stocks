@@ -1,5 +1,4 @@
 
-import 'package:flutter/material.dart';
 import 'package:stock_market/features/market/data/datasource/market_api_datasource.dart';
 import 'package:stock_market/features/market/data/datasource/market_websocket_datasource.dart';
 import 'package:stock_market/features/market/domain/entities/candle.dart';
@@ -11,7 +10,7 @@ class MarketRepositoryImpl implements MarketRepository{
     final MarketWebsocketDatasource websocketDatasource;
     MarketRepositoryImpl({
       required this.apiDatasource,
-      required this.websocketDatasource
+      required this.websocketDatasource,
     });
 
     @override

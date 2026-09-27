@@ -21,11 +21,25 @@ class MarketState extends Equatable {
 
   final String? errorMessage;
 
+  // Fixed chart axis bounds computed from the full candle
+  // set so the chart doesn't rescale as candles are revealed.
+  final double? minY;
+
+  final double? maxY;
+
+  final DateTime? minX;
+
+  final DateTime? maxX;
+
   const MarketState({
     this.status = MarketStatus.initial,
     this.candles = const [],
     this.currentPrice,
     this.errorMessage,
+    this.minY,
+    this.maxY,
+    this.minX,
+    this.maxX,
   });
 
   MarketState copyWith({
@@ -33,12 +47,20 @@ class MarketState extends Equatable {
     List<Candle>? candles,
     double? currentPrice,
     String? errorMessage,
+    double? minY,
+    double? maxY,
+    DateTime? minX,
+    DateTime? maxX,
   }) {
     return MarketState(
       status: status ?? this.status,
       candles: candles ?? this.candles,
       currentPrice: currentPrice ?? this.currentPrice,
       errorMessage: errorMessage,
+      minY: minY ?? this.minY,
+      maxY: maxY ?? this.maxY,
+      minX: minX ?? this.minX,
+      maxX: maxX ?? this.maxX,
     );
   }
 
@@ -48,5 +70,9 @@ class MarketState extends Equatable {
         candles,
         currentPrice,
         errorMessage,
+        minY,
+        maxY,
+        minX,
+        maxX,
       ];
 }
