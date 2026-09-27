@@ -14,24 +14,10 @@ class _LoginState extends State<Login>{
       appBar: AppBar(
         title: Text("Login Screen"),
       ),
-      floatingActionButton: FloatingActionButton(
-        child: Text(
-          "Click Me",
-          ),
-        onPressed: (){
-         setState(() {
-           number++;
-           print("Button is clicked by $number times");
-         });
-        },
-      ),
-      body: Center(
-        child: Text(
-          "$number", //Current State = 0
-          style: TextStyle(fontSize: 30),
-          
-          ),
-      ),
+      body: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        
+      )
     );
     }
 }
