@@ -1,7 +1,7 @@
 import 'dart:math';
 
 import 'package:flutter/material.dart';
-import 'package:stock_market/dashboard.dart';
+import 'package:stock_market/view/dashboard.dart';
 
 class Login extends StatefulWidget{
   const Login({super.key});
@@ -12,6 +12,7 @@ class Login extends StatefulWidget{
 class _LoginState extends State<Login>{
   TextEditingController usernameController = TextEditingController();
   TextEditingController passwordController = TextEditingController();
+  bool isPasswordVisibile = false;
 
   void login(){
     String userName = usernameController.text;
@@ -63,10 +64,19 @@ class _LoginState extends State<Login>{
             //Password
             TextField(
               controller: passwordController,
-              obscureText: true,
-              decoration: const InputDecoration(
+              obscureText: !isPasswordVisibile,
+              decoration: InputDecoration(
                 labelText: "Password",
-                border: OutlineInputBorder()
+                border: OutlineInputBorder(),
+                suffixIcon: IconButton(
+                  onPressed: (){
+                    setState(() {
+                      isPasswordVisibile = !isPasswordVisibile;
+                    });
+                  }, 
+                  icon: Icon(
+                    isPasswordVisibile ? Icons.visibility : Icons.visibility_off
+                  ))
               ),
             ),      
                   SizedBox(height: 20,),
