@@ -3,6 +3,7 @@ cd lib
 
     mkdir models
         cd models
+        
             touch user_model.dart
         cd ..
 
