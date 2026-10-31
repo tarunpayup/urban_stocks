@@ -12,4 +12,29 @@ class StockService {
     const StockModel(symbol: "HDFC", companyName: "HDFC Bank", price: 1020.44, change: 0, changePercent: 0),
     const StockModel(symbol: "ITC", companyName: "ITC Limited", price: 899.12, change: 0, changePercent: 0)
   ];
+
+
+
+  Stream<List<StockModel>> watchStocks() async*{
+    List<StockModel> stocks = _initialStock;
+    yield stocks;
+
+    while(true){
+      await Future.delayed(const Duration(seconds: 1));
+      stocks = stocks.map((stock){
+        final fluctuation = (_random.nextDouble() - 0.5) * 0.01;
+        final newPrice = stock.price * (1 + fluctuation);
+        final change = newPrice - stock.price; //1105-1100
+        final changePercent = (change/stock.price)*100;
+
+        return stock.copyWith(
+          price: newPrice,
+          change: change,
+          changePercent: changePercent,
+        );
+      }).toList();
+      yield stocks;
+    }
+
+  }
 }

@@ -12,4 +12,14 @@ class StockModel {
     required this.change,
     required this.changePercent
   });
+
+  bool get isUp => change >= 0;
+
+  StockModel copyWith({double? price, double? change, double? changePercent}){
+    return StockModel(symbol: symbol, 
+    companyName: companyName, 
+    price: price ?? this.price, 
+    change: change ?? this.change, 
+    changePercent: changePercent??this.changePercent);
+  }
 }
