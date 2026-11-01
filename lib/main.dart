@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:stock_market/views/dashboard/dashboard_screen.dart';
 import 'views/auth/login_screen.dart';
 
 void main() {
@@ -19,7 +20,7 @@ class UrbanStocksApp extends StatelessWidget {
       title: 'Urban Stocks',
       debugShowCheckedModeBanner: false,
       theme: ThemeData(primarySwatch: Colors.blue),
-      home: const LoginScreen(),
+      home: const DashboardScreen(),
     );
   }
 }
