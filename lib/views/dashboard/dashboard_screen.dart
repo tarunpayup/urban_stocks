@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:stock_market/provider/stock_provider.dart';
-import '../../providers/stock_providers.dart';
 import '../../core/widgets/stock_list_tile.dart';
 
 class DashboardScreen extends ConsumerWidget {
